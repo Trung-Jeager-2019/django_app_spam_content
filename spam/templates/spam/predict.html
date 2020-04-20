@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+{% block content %}
+	<div class="ml-container">
+        <p style="color:blue; text-align: center;"><b>Kết quả</b></p>
+        <div class="results">
+            {% if prediction == 1%}
+
+            <h2 style="color:red;text-align: center;">"Văn bản email " là Spam</h2>
+
+            {% elif prediction == 0%}
+
+            <h2 style="color:blue;text-align: center;">"Văn bản email" không phải là Spam</h2>
+            {% endif %}
+        </div>
+	</div>
+{% endblock content %}
