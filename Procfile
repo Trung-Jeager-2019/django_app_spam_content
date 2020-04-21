@@ -1,0 +1,1 @@
+web: gunicorn spamsystem.wsgi:application --log-file -

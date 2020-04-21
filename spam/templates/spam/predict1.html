@@ -1,0 +1,50 @@
+{% extends "base1.html"%}
+{% block content %}
+<!-- Hero Area Start-->
+        <div class="slider-area hero-overly">
+            <div class="single-slider hero-overly  slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-9">
+                            <!-- Hero Caption -->
+                            <div class="hero__caption">
+                                <span> Results </span>
+                            </div>
+                            <div class="section-tittle section-tittle2 text-center mb-80">
+                                {% if prediction == 1%}
+                                    <h2 style="color:red;"> This is Spam</h2>
+                                {% elif prediction == 0%}
+                                    <h2>This is Non-Spam</h2>
+                                {% endif %}
+                            </div>
+                            <!--Hero form -->
+                            <form id="check_form" class="search-box" action={% url 'spams:predict' %} method="POST">
+                                {% csrf_token %}
+                                <div class="input-form">
+                                    <input name="message" type="text" placeholder="Check out the content here">
+                                </div>
+                                <div class="select-form">
+                                    <div class="select-itms">
+                                        <select name="select" id="select1">
+                                            <option value="">All Catagories</option>
+                                            <option value="">Email</option>
+                                            <option value="">Messsge</option>
+                                            <option value="">SMS</option>
+                                            <option value="">Document</option>
+                                            <option value="">Another one</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="search-form">
+                                    <!--<button type="submit" class="btn btn-outline-success"> Submit </button>-->
+                                    <!--<a href="{% url 'spams:predict' %}" onclick="this.parentNode.submit();"> Check now </a>-->
+                                    <a href="javascript:{}" onclick="document.getElementById('check_form').submit();"> Check now </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero Area End-->
+{% endblock content %}

@@ -17,7 +17,7 @@ def home(request):
     form = SpamForm(request.POST or None)
     if form.is_valid():
         form.save()
-    return render(request, "spam/home.html")
+    return render(request, "spam/home1.html")
 
 
 def predict(request):
@@ -56,4 +56,4 @@ def predict(request):
     context={
         'prediction': my_prediction
     }
-    return render(request, 'spam/predict.html', context=context)
+    return render(request, 'spam/predict1.html', context=context)
